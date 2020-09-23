@@ -1,5 +1,6 @@
 package com.example.madlevel2example
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -17,14 +18,16 @@ class ReminderAdapter(private val reminders: List<Reminder>) : RecyclerView.Adap
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        TODO("Not yet implemented")
+        return ViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.item_reminder, parent, false)
+        )
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return reminders.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.databind((reminders[position]))
     }
 }
